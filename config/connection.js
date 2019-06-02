@@ -1,7 +1,7 @@
 // Secure password 
 require("dotenv").config();
-var keys = require("./keys.js");
-var myPassword = keys.keys.password;
+// var keys = require("./keys.js");
+// var myPassword = keys.keys.password;
 
 // Set up MySQL connection.
 var mysql = require("mysql");
@@ -9,7 +9,7 @@ var connection = mysql.createConnection({
   host: "localhost",
   port: 3306,
   user: "root",
-  password: myPassword,
+  password: "Myloveyoungju0430*",
   database: "burgers_db"
 });
 
