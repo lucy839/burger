@@ -19,7 +19,7 @@ var burger = {
     //   });
     // },
     insertOne: function(cols, vals, cb) {
-      orm.insertOne('burgers', cols, vals, function(res) {
+      orm.insertOne("burgers", cols, vals, function(res) {
         cb(res);
       });
     },
@@ -29,7 +29,7 @@ var burger = {
     //   });
     // }
     updateOne: function(burger_id, callback){
-      orm.updateOne(burger_id, function(res){
+      orm.updateOne("burgers",burger_id, function(res){
         callback(res);
       });
     }
