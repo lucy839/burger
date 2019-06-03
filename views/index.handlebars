@@ -12,11 +12,22 @@
     <div class="col s6">
       <ol>
         {{#each burgers}}
-          {{#unless this.devoured}}
-          <li>{{this.burger_name}}
-            <button type="submit" class='burgerAvailable'><i class="fas fa-utensils"></i> </button>
-          </li>
-          {{/unless}}
+        {{#unless this.devoured}}
+        <form action="burger/eat/{{id}}" method="POST">
+          <div class="input-group">
+             <li>{{this.burger_name}}
+          <button type="submit" class='burgerAvailable'><i class="fas fa-utensils"></i> </button>
+        </li>
+            {{!-- <li class="form-control">{{id}}. {{burger_name}}</li>
+            <span class="input-group-btn">
+              <button class="btn btn-success devour-button" type="submit">Devour It!</button>
+            </span> --}}
+          </div>
+        </form>
+        {{!-- <li>{{this.burger_name}}
+          <button type="submit" class='burgerAvailable'><i class="fas fa-utensils"></i> </button>
+        </li> --}}
+        {{/unless}}
         {{/each}}
     </div>
 

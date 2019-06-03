@@ -50,7 +50,9 @@ var orm = {
             cb(result);
         });
     },
-    insertOne: function (table, cols, vals, cb) {
+    // insertOne: function (burger_name, cb) {
+        insertOne: function(table, cols, vals, cb) {
+
         var queryString = "INSERT INTO " + table;
 
         queryString += " (";
@@ -69,24 +71,44 @@ var orm = {
 
             cb(result);
         });
+        // connection.query('INSERT INTO burgers SET ?', {
+        //     burger_name: burger_name,
+        //     devoured: false
+        //   }, function (err, result) {
+        //     if (err) throw err;
+        //     cb(result);
+        //   });
     },
-    updateOne: function(table, objColVals, condition, cb) {
-        var queryString = "UPDATE " + table;
+    updateOne: function(burgerID, cb){
+
+        // Run MySQL Query
+        connection.query('UPDATE burgers SET ? WHERE ?', [{
+            devoured: true
+        }, {
+            id: burgerID
+        }], function (err, result) {
+            if (err) throw err;
+            cb(result);
+          });
     
-        queryString += " SET ";
-        queryString += objToSql(objColVals);
-        queryString += " WHERE ";
-        queryString += condition;
-    
-        console.log(queryString);
-        connection.query(queryString, function(err, result) {
-          if (err) {
-            throw err;
-          }
-    
-          cb(result);
-        });
       }
+    // updateOne: function(table, objColVals, condition, cb) {
+    //     var queryString = "UPDATE " + table;
+    
+    //     queryString += " SET ";
+    //     queryString += objToSql(objColVals);
+    //     queryString += " WHERE ";
+    //     queryString += condition;
+    
+    //     console.log(queryString);
+    //     connection.query(queryString, function(err, result) {
+    //       if (err) {
+    //         throw err;
+    //       }
+    
+    //       cb(result);
+    //     });
+    //   }
     };
     
     // Export the orm object for the model (burger.js).

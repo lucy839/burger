@@ -1,20 +1,22 @@
-// Secure password 
-require("dotenv").config();
-// var keys = require("./keys.js");
-// var myPassword = keys.keys.password;
-
 // Set up MySQL connection.
 var mysql = require("mysql");
-var connection = mysql.createConnection({
-  host: "localhost",
-  port: 3306,
-  user: "root",
-  password: "Myloveyoungju0430*",
-  database: "burgers_db"
-});
+// For Heroku Deployment vs. Local MySQL Database
+var connection;
+if (process.env.JAWSDB_URL) {
+  connection = mysql.createConnection(process.env.JAWSDB_URL);
+}
+else {
+  connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: 'Myloveyoungju0430*', // Add your password
+    database: 'burgers_db' // Add your database
+  });
+}
+
 
 // Make connection.
-connection.connect(function(err) {
+connection.connect(function (err) {
   if (err) {
     console.error("error connecting: " + err.stack);
     return;
