@@ -1,10 +1,11 @@
+// Dependencies
 var express = require("express");
 var router = express.Router();
 
 // Import the model (burger.js) to use its database functions.
 var burger = require("../models/burger.js");
 
-// Create all our routes and set up logic within those routes where required.
+// Get all data
 router.get("/", function(req, res) {
     burger.selectAll(function(data) {
       var hbsObject = {
@@ -15,6 +16,7 @@ router.get("/", function(req, res) {
     });
   });
 
+  // give new data
   router.post('/burgers', function(req, res) {
     burger.insertOne([
       'burger_name'
@@ -25,21 +27,7 @@ router.get("/", function(req, res) {
     });
   });
   
-  // router.put('/burgers/:id', function(req, res) {
-  //   var condition = 'id = ' + req.params.id;
-  
-  //   burger.updateOne({
-  //     devoured: true
-  //   }, condition, function(data) {
-  //     res.redirect('/');
-  //   });
-  // });
-  // router.post("/burger/create", function(req, res) {
-  //   burger.insertOne(req.body.burger_name, function() {
-  //     res.redirect('/index');
-  //   });
-  // });
-  
+  // give update on existing data
   router.post('/burger/eat/:id', function (req, res) {
     burger.updateOne(req.params.id, function() {
       res.redirect('/');
