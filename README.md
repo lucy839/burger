@@ -8,7 +8,8 @@
 - The user may enter any burger name to add it to the menu, which will be also added to the mysql database. All burger entries (both existing and new) are added as available on the menu and placed on the left side of the screen. The user may then eat any burger by clicking on it, which moves it to the right side and updates its status accordingly in the database.
 
 ## Demo
-- The demo of the burger eating application can be found:...
+- The demo of the burger eating application can be found:
+https://powerful-eyrie-18084.herokuapp.com/
 
 ## Installation
 - To run the application locally, first clone this repository with the following command.

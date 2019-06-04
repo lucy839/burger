@@ -11,7 +11,7 @@ else {
   connection = mysql.createConnection({
     host: "localhost",
     user: "root",
-    password: "Myloveyoungju0430*", // Add your password
+    password: "", // Add your password
     database: "burgers_db" // Add your database
   });
 }
